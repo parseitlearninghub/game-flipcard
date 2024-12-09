@@ -19,8 +19,8 @@ const dropdown = document.getElementById("difficulty-select");
 // Variable to store the selected value
 let difficulty = 4;
 let tempSize = 1;
-let numrows = 2;
-let numcols = 3;
+let numrows = 4;
+let numcols = 4;
 let score = 1000;
 let numMultiflier = 1;
 
