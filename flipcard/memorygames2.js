@@ -4,12 +4,12 @@ const startButton = document.getElementById("start");
 const stopButton = document.getElementById("stop");
 const gameContainer = document.querySelector(".game-container");
 const result = document.getElementById("result");
+const result2 = document.querySelector(".result-container");
 const controls = document.querySelector(".controls-container");
 let cards;
 let interval;
 let firstCard = false;
 let secondCard = false;
-
 // Reference to the dropdown
 const dropdown = document.getElementById("difficulty-select");
 
@@ -17,24 +17,6 @@ const dropdown = document.getElementById("difficulty-select");
 let difficulty2;
 let difficulty = 4;
 let tempSize = 1;
-// Event listener to update the `difficulty` variable
-// dropdown.addEventListener("change", () => {
-//   difficulty2 = dropdown.value;
-//   if (difficulty2 === "extreme") {
-//     difficulty = 4;
-//     tempSize = 2;
-//   } else if (difficulty2 === "easy") {
-//     difficulty = 2;
-//     tempSize = 1;
-//   } else if (difficulty2 === "normal") {
-//     difficulty = 4;
-//     tempSize = 1;
-//   } else if (difficulty2 === "hard") {
-//     difficulty = 6;
-//     tempSize = 1;
-//   }
-//   initializer();
-// });
 
 document.addEventListener("DOMContentLoaded", function () {
   const difficultyBtn = document.getElementById("diff-design");
@@ -56,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const textdifficulty = this.getAttribute("data-difficulty");
       difficultyBtn.textContent = textdifficulty;
       modal.style.display = "none";
-      result.style.display = "none";
+      result2.style.display = "none";
       console.log(textdifficulty);
       if (textdifficulty === "Easy") {
         difficulty = 4;
@@ -82,61 +64,50 @@ document.addEventListener("DOMContentLoaded", function () {
       this.classList.add("active");
     });
   });
-
-  // You can add more functionality for the start game and back to home buttons here
-  // document.getElementById('start').addEventListener('click', function() {
-  //     console.log('Start game clicked');
-
-  // });
-
-  // document.getElementById('home_btn').addEventListener('click', function() {
-  //     console.log('Back to home clicked');
-
-  // });
 });
 
 //Items array
 const items = [
-  { name: "harddrive", image: "image/harddrive.jpg" },
-  { name: "arduino", image: "image/arduino.jpg" },
-  { name: "cpu", image: "image/cpu.jpg" },
-  { name: "headphones", image: "image/headphones.jpg" },
-  { name: "keyboard", image: "image/keyboard.jpg" },
-  { name: "laptop", image: "image/laptop.jpg" },
-  { name: "monitor", image: "image/monitor.jpg" },
-  { name: "mouse", image: "image/mouse.jpg" },
-  { name: "pendrive", image: "image/pendrive.jpg" },
-  { name: "ram", image: "image/ram.jpg" },
-  { name: "rom", image: "image/rom.jpg" },
-  { name: "router", image: "image/router.jpg" },
-  { name: "java", image: "image/java.png" },
-  { name: "c", image: "image/c.png" },
-  { name: "sql", image: "image/sql.png" },
-  { name: "html", image: "image/html.png" },
-  { name: "css2", image: "image/css2.png" },
-  { name: "javascript", image: "image/javascript.png" },
-  { name: "python", image: "image/python.png" },
-  { name: "ruby", image: "image/ruby.png" },
+  { name: "harddrive", image: "./image/harddrive.jpg" },
+  { name: "arduino", image: "./image/arduino.jpg" },
+  { name: "cpu", image: "./image/cpu.jpg" },
+  { name: "headphones", image: "./image/headphones.jpg" },
+  { name: "keyboard", image: "./image/keyboard.jpg" },
+  { name: "laptop", image: "./image/laptop.jpg" },
+  { name: "monitor", image: "./image/monitor.jpg" },
+  { name: "mouse", image: "./image/mouse.jpg" },
+  { name: "pendrive", image: "./image/pendrive.jpg" },
+  { name: "ram", image: "./image/ram.jpg" },
+  { name: "rom", image: "./image/rom.jpg" },
+  { name: "router", image: "./image/router.jpg" },
+  { name: "java", image: "./image/java.png" },
+  { name: "c", image: "./image/c.png" },
+  { name: "sql", image: "./image/sql.png" },
+  { name: "html", image: "./image/html.png" },
+  { name: "css2", image: "./image/css2.png" },
+  { name: "javascript", image: "./image/javascript.png" },
+  { name: "python", image: "./image/python.png" },
+  { name: "ruby", image: "./image/ruby.png" },
 ];
 const items2 = [
-  { name: "firsts", image: "image/first.png" },
-  { name: "second", image: "image/second.png" },
-  { name: "third", image: "image/third.png" },
-  { name: "fourth", image: "image/fourth.png" },
-  { name: "fifth", image: "image/fifth.png" },
-  { name: "sixth", image: "image/sixth.png" },
-  { name: "seventh", image: "image/seventh.png" },
-  { name: "eighth", image: "image/eigth.png" },
-  { name: "ninth", image: "image/ninth.png" },
-  { name: "tenth", image: "image/tenth.png" },
-  { name: "eleventh", image: "image/eleventh.png" },
-  { name: "twelfth", image: "image/twelfth.png" },
-  { name: "thirteenth", image: "image/thirteenth.png" },
-  { name: "fourteenth", image: "image/fourteenth.png" },
-  { name: "fifteenth", image: "image/fifteenth.png" },
-  { name: "sixteenth", image: "image/sixteenth.png" },
-  { name: "seventeenth", image: "image/seventeenth.png" },
-  { name: "eighteenth", image: "image/eighteenth.png" },
+  { name: "firsts", image: "./image/first.png" },
+  { name: "second", image: "./image/second.png" },
+  { name: "third", image: "./image/third.png" },
+  { name: "fourth", image: "./image/fourth.png" },
+  { name: "fifth", image: "./image/fifth.png" },
+  { name: "sixth", image: "./image/sixth.png" },
+  { name: "seventh", image: "./image/seventh.png" },
+  { name: "eighth", image: "./image/eigth.png" },
+  { name: "ninth", image: "./image/ninth.png" },
+  { name: "tenth", image: "./image/tenth.png" },
+  { name: "eleventh", image: "./image/eleventh.png" },
+  { name: "twelfth", image: "./image/twelfth.png" },
+  { name: "thirteenth", image: "./image/thirteenth.png" },
+  { name: "fourteenth", image: "./image/fourteenth.png" },
+  { name: "fifteenth", image: "./image/fifteenth.png" },
+  { name: "sixteenth", image: "./image/sixteenth.png" },
+  { name: "seventeenth", image: "./image/seventeenth.png" },  
+  { name: "eighteenth", image: "./image/eighteenth.png" },
 ];
 //Initial Time
 let seconds = 0,
@@ -177,9 +148,7 @@ const tempArrayGen = (numitems = tempSize) => {
 //Pick random objects from the items array
 const generateRandom = (size = 4) => {
   //temporary array
-  // let tempArray;
   let tempArray = tempArrayGen();
-  // console.log(tempArray+ "THIS IS THE WOWOWOW");
   //initializes cardValues array
   let cardValues = [];
   //size should be double (4*4 matrix)/2 since pairs of objects would exist
@@ -230,8 +199,8 @@ const matrixGenerator = (cardValues, size) => {
 
   if (difficulty == 6) {
     cards.forEach((card) => {
-      card.style.height = "45px";
-      card.style.width = "45px";
+      card.style.height = "55px";
+      card.style.width = "55px";
       console.log(card);
     });
   } else if (difficulty == 4) {
@@ -278,6 +247,12 @@ const matrixGenerator = (cardValues, size) => {
 
           if (winCount === Math.floor(cardValues.length / 2)) {
             result.innerHTML = `<h2>You Won</h2><h4>Moves: ${movesCount}</h4>`;
+            result2.style.display = "flex";
+            window.addEventListener("click", function (event) {
+              if (event.target == result2) {
+                result2.style.display = "none";
+              }
+            });
             stopGame();
           }
           isClickable = true; // Allow clicks again

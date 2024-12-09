@@ -21,37 +21,20 @@
       <button id="stop" class="hide">Stop Game</button>
     </div>
 
-    <div class="controls-container">
-      <!-- <button id="home_btn">
-        <img src="./image/icon-home.png" class="home_icon" />
-      </button> -->
-      <img src="./image/bg5.png" class="bg_img" />
+    <div class="result-container">
       <p id="result"></p>
-      <button id="start">Start Game</button>
+    </div>
 
-      <!-- <div class="dropdown-container">
-        <label for="difficulty-select">Select Difficulty:</label>
-        <select id="difficulty-select">
-          <option value="easy">Very Easy</option>
-          <option value="normal" selected>Normal</option>
-          <option value="hard">Hard</option>
-          <option value="extreme">Extreme</option>
-        </select>
-      </div> -->
+    <div class="controls-container">
+      <div>
+        <img src="./image/bg5.png" class="bg_img" id="bg_img" />
+      </div>
+      <button id="start">Start Game</button>
       <div class="difficulty-container">
-        <!-- <span class="difficulty-label">Select Difficulty:</span> -->
         <div class="select-wrapper">
           <button id="diff-design">Easy</button>
-
-          <!-- <select id="difficulty-select">
-            <option value="easy">Very Easy</option>
-            <option value="normal" selected>Normal</option>
-            <option value="hard">Hard</option>
-            <option value="extreme">Extreme</option>
-          </select> -->
         </div>
       </div>
-
       <button id="home_btn" onclick="window.location.href='https://parseitlearninghub.github.io/parsers/'" >Back to Home</button>
     </div>
 
@@ -59,10 +42,14 @@
       <div class="modal-content">
         <h2>Select Difficulty</h2>
         <button class="btn btn-difficulty" data-difficulty="Easy">Easy</button>
-        <button class="btn btn-difficulty" data-difficulty="Normal">Normal</button>
+        <button class="btn btn-difficulty" data-difficulty="Normal">
+          Normal
+        </button>
         <button class="btn btn-difficulty" data-difficulty="Hard">Hard</button>
-        <button class="btn btn-difficulty" data-difficulty="Extreme">Extreme</button>
-    </div>
+        <button class="btn btn-difficulty" data-difficulty="Extreme">
+          Extreme
+        </button>
+      </div>
     </div>
     <!-- Script -->
     <script src="memorygames2.js"></script>
