@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, scalable=no"
+    />
     <title>Memory Game</title>
     <!-- Google Fonts -->
     <link
@@ -14,18 +17,29 @@
   <body>
     <div class="wrapper">
       <div class="stats-container">
-        <div id="moves-count"></div>
-        <div id="time"></div>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+          "
+        >
+          <div id="moves-count"></div>
+          <div id="time"></div>
+        </div>
+
+        <div id="score"></div>
       </div>
       <div class="game-container"></div>
       <button id="stop" class="hide">Stop Game</button>
     </div>
 
-    <div class="result-container">
+    <div class="result-container" id="result-container">
       <p id="result"></p>
     </div>
 
     <div class="controls-container">
+
       <div>
         <img src="./image/bg5.png" class="bg_img" id="bg_img" />
       </div>
@@ -35,7 +49,32 @@
           <button id="diff-design">Easy</button>
         </div>
       </div>
-      <button id="home_btn" onclick="window.location.href='https://parseitlearninghub.github.io/parsers/'" >Back to Home</button>
+      <button
+        id="home_btn"
+        onclick="window.location.href='https://parseitlearninghub.github.io/parsers/'"
+      >
+        Back to Home
+      </button>
+
+      <button id="leaderboard" onclick="viewLeaderboard()">Leaderboard</button>
+
+      <div class="highscore-container" id="highscore-container">
+        <div class="highscore-title">Highscore</div>
+        <div class="highscore-item">
+          <div class="highscore-rank">Rank</div>
+          <div class="highscore-score">Score</div>
+          <div class="highscore-name">Name</div>
+        </div>
+        <div class="highscore-content" id="highscore-content">
+          <div class="highscore-item">
+            <div class="highscore-rank"><img src="./image/icon/Champion1.png" class="imgTitle"/></div>
+            <div class="highscore-score">1000</div>
+            <div class="highscore-name">John</div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
     <div id="difficulty-modal" class="modal">
@@ -51,7 +90,9 @@
         </button>
       </div>
     </div>
+
     <!-- Script -->
     <script src="memorygames2.js"></script>
+    <script type="module" src="database.js"></script>
   </body>
 </html>
