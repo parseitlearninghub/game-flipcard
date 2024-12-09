@@ -29,7 +29,7 @@ const dbRef = ref(database);
 async function getparser_username() {
   const usernameRef = ref(database, `PARSEIT/game/memoryFlip`);
   const snapshot = query(usernameRef, orderByKey(), limitToLast(4));
-  onValue(snapshot, (snapshot2) => {
+  onValue(snapshot, async (snapshot2) => {
     if (snapshot2.exists()) {
       const reversed = Object.keys(snapshot2.val()).reverse();
       const viewLeaderboard = document.getElementById("highscore-content");
@@ -67,7 +67,7 @@ document
   });
 
 async function setScore(score, moves, time, user) {
-    getFullName(user);
+    await getFullName(user);
     await update(ref(database, `PARSEIT/game/memoryFlip/${score}`), {
       fullName: localStorage.getItem("fullName"),
       movescount: moves,
