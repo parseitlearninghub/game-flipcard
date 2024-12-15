@@ -47,30 +47,30 @@ document.addEventListener("DOMContentLoaded", function () {
       result2.style.display = "none";
       if (textdifficulty === "Easy") {
         // difficulty = 4;
-        numrows= 4;
-        numcols= 4;
+        numrows = 4;
+        numcols = 4;
         tempSize = 1;
         score = 1000;
         numMultiflier = 1;
       } else if (textdifficulty === "Normal") {
         difficulty = 5;
-        numrows= 5;
-        numcols= 4;
-        tempSize = 1;
+        numrows = 5;
+        numcols = 4;
+        tempSize = 2;
         score = 1000;
         numMultiflier = 1.1;
       } else if (textdifficulty === "Hard") {
         difficulty = 5;
-        numrows= 5;
-        numcols= 4;
-        tempSize = 2;
+        numrows = 5;
+        numcols = 4;
+        tempSize = 3;
         score = 1000;
         numMultiflier = 1.3;
       } else if (textdifficulty === "Extreme") {
         difficulty = 6;
-        numrows= 6;
-        numcols= 5;
-        tempSize = 2;
+        numrows = 6;
+        numcols = 5;
+        tempSize = 3;
         score = 1000;
         numMultiflier = 1.7;
       }
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //Items array
-const items = [
+const peripherals = [
   { name: "harddrive", image: "./image/harddrive.jpg" },
   { name: "arduino", image: "./image/arduino.jpg" },
   { name: "cpu", image: "./image/cpu.jpg" },
@@ -97,6 +97,9 @@ const items = [
   { name: "ram", image: "./image/ram.jpg" },
   { name: "rom", image: "./image/rom.jpg" },
   { name: "router", image: "./image/router.jpg" },
+];
+
+const programlanguages = [
   { name: "java", image: "./image/java.png" },
   { name: "c", image: "./image/c.png" },
   { name: "sql", image: "./image/sql.png" },
@@ -106,6 +109,7 @@ const items = [
   { name: "python", image: "./image/python.png" },
   { name: "ruby", image: "./image/ruby.png" },
 ];
+
 const items2 = [
   { name: "firsts", image: "./image/first.png" },
   { name: "second", image: "./image/second.png" },
@@ -123,7 +127,7 @@ const items2 = [
   { name: "fourteenth", image: "./image/fourteenth.png" },
   { name: "fifteenth", image: "./image/fifteenth.png" },
   { name: "sixteenth", image: "./image/sixteenth.png" },
-  { name: "seventeenth", image: "./image/seventeenth.png" },  
+  { name: "seventeenth", image: "./image/seventeenth.png" },
   { name: "eighteenth", image: "./image/eighteenth.png" },
 ];
 //Initial Time
@@ -154,7 +158,7 @@ const movesCounter = () => {
   movesCount += 1;
   moves.innerHTML = `<span>Moves:</span> ${movesCount}`;
 };
- 
+
 const calculatePoints = (moveCount, timeInSeconds) => {
   const BaseScore = score * numMultiflier; // Starting points
   const MovePenalty = 10; // Points deducted per move
@@ -170,10 +174,14 @@ const calculatePoints = (moveCount, timeInSeconds) => {
 
 
 const tempArrayGen = (numitems = tempSize) => {
+  if (numitems === 1) {
+    return [...programlanguages];
+  }
   if (numitems === 2) {
+    return [...peripherals];
+  }
+  if (numitems === 3) {
     return [...items2];
-  } else {
-    return [...items];
   }
 };
 //Pick random objects from the items array
@@ -223,7 +231,7 @@ const matrixGenerator = (cardValues, rows = numrows, cols = numcols) => {
   //Cards
   cards = document.querySelectorAll(".card-container");
   resistorImg = document.querySelectorAll(".card-after .image");
-  if (tempSize === 2) {
+  if (tempSize === 3) {
     resistorImg.forEach((img) => {
       img.style.height = "auto";
       img.style.transform = "scale(1.5) rotate(45deg)";
@@ -266,8 +274,8 @@ const matrixGenerator = (cardValues, rows = numrows, cols = numcols) => {
       } else {
         // Handle the second card clicked
         movesCounter();
-        let finalScore = calculatePoints(movesCount, seconds)  + addPoints;
-        let partialScore = calculatePoints(movesCount, 0)  + addPoints;
+        let finalScore = calculatePoints(movesCount, seconds) + addPoints;
+        let partialScore = calculatePoints(movesCount, 0) + addPoints;
         scoreDisplay.innerHTML = `<span>Score:</span> ${partialScore}`;
 
         secondCard = card;
@@ -365,7 +373,7 @@ function viewLeaderboard() {
   if (bclick == 1) {
     highscore.style.display = "flex";
     bclick = 2;
-  }else if (bclick == 2) {
+  } else if (bclick == 2) {
     highscore.style.display = "none";
     bclick = 1;
   }
